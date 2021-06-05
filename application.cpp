@@ -1,6 +1,6 @@
 //
 //  application.cpp
-//  Calculator
+//  Qt-Calculators
 //
 
 #ifdef WIN2
@@ -21,7 +21,7 @@ GUI_app::GUI_app(int &argc, char **argv,
   m_basic_calc(basic_calculator),
   m_engineering_calc(engineering_calculator)
 {
-    setApplicationName("Calculator");
+    setApplicationName("Qt-Calculators");
     setApplicationVersion("1.0");
     
     set_global_style();
@@ -32,7 +32,10 @@ GUI_app::GUI_app(int &argc, char **argv,
 
 void GUI_app::set_global_style()
 {
-    QFile styles("resources" + QString(PATH_SEPARATOR) + "styles.qss");
+    //QFile styles(QString(PATH_SEPARATOR) + "resources" +
+      //           QString(PATH_SEPARATOR) + "styles.qss");
+    
+    QFile styles("/Users/atolpeko/code/projects/calculator/Qt-Calculators/resources/styles.qss");
     styles.open(QFile::ReadOnly);
     setStyleSheet(QString::fromLatin1(styles.readAll()));
     styles.close();

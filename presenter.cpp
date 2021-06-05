@@ -1,6 +1,6 @@
 //
 //  presenter.cpp
-//  Calculator
+//  Qt-Calculators
 //
 
 #include "presenter.hpp"

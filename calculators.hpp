@@ -1,10 +1,10 @@
 //
 //  calculators.hpp
-//  Calculator
+//  Qt-Calculators
 //
 
-#ifndef CALC_CALCULATORS_HPP
-#define CALC_CALCULATORS_HPP
+#ifndef CALCULATORS_HPP
+#define CALCULATORS_HPP
 
 
 #include <cmath>
@@ -49,7 +49,7 @@ protected:
     
 public:
     Basic_calculator();
-    ~Basic_calculator() = default;
+    virtual ~Basic_calculator() = default;
 
     std::wstring& calculate() override;
     void put_data(const std::wstring &data) override;
@@ -59,16 +59,16 @@ public:
     bool ready_to_calculate() const noexcept override;
 
 private:
-    std::wstring& do_binary(p_binary_oper operation);
-    std::wstring& do_unary(p_unary_oper operation);
+    std::wstring& do_binary(p_binary_oper &operation);
+    std::wstring& do_unary(p_unary_oper &operation);
     void put_operand(const std::wstring &data) noexcept;
     void put_operation(const std::wstring &data);
-    void remove_extra_chars() noexcept;
+    void remove_extra_symbols() noexcept;
 
 protected:
     //Operation-function_pointer pairs
-    std::map<std::wstring, p_binary_oper> m_binary_oper;
-    std::map<std::wstring, p_unary_oper> m_unary_oper;
+    std::map<std::wstring, p_binary_oper> m_binary_operations;
+    std::map<std::wstring, p_unary_oper> m_unary_operations;
     
     std::wstring m_first_operand;
     std::wstring m_second_operand;
@@ -80,18 +80,18 @@ protected:
 class model::Engineering_calculator : public Basic_calculator {
 public:
     Engineering_calculator();
-    ~Engineering_calculator() = default;
+    virtual ~Engineering_calculator() = default;
     
     void put_data(const std::wstring &data) override;
 };
 
 
 struct calc_implementation::Constants {
-    Constants() = delete;
-    
     static constexpr double Pi = 3.141592653;
     static constexpr double Exponent = 2.718281828;
+    
+    Constants() = delete;
 };
 
 
-#endif //CALC_CALCULATORS_HPP
+#endif // CALCULATORS_HPP

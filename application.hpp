@@ -1,10 +1,10 @@
 //
 //  application.hpp
-//  Calculator
+//  Qt-Calculators
 //
 
-#ifndef CALC_APPLICATION_HPP
-#define CALC_APPLICATION_HPP
+#ifndef APPLICATION_HPP
+#define APPLICATION_HPP
 
 
 #include <QApplication>
@@ -55,4 +55,4 @@ private:
 };
 
 
-#endif //CALC_APPLICATION_HPP
+#endif // APPLICATION_HPP

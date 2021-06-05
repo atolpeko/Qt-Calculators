@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  Calculator
+//  Qt-Calculators
 //
 
 #include "application.hpp"

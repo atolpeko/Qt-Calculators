@@ -1,10 +1,10 @@
 //
 //  presenter.hpp
-//  Calculator
+//  Qt-Calculators
 //
 
-#ifndef CALC_PRESENTER_HPP
-#define CALC_PRESENTER_HPP
+#ifndef PRESENTER_HPP
+#define PRESENTER_HPP
 
 
 #include <QString>
@@ -22,4 +22,4 @@ private:
 };
 
 
-#endif //CALC_PRESENTER_HPP
+#endif // PRESENTER_HPP
