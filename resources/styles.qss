@@ -1,0 +1,56 @@
+QPushButton {
+    color: #000000;
+    background: #ffffff;
+    border: #ffffff;
+    border-radius: 15px;
+    border-style: outset;
+}
+
+QPushButton:hover {
+    background: qlineargradient( x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #ffffff, stop: 1 #f1f3f3 );
+}
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qlineargradient( x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 1 #ffffff, stop: 1 #cccccc );
+}
+
+QPushButton#markedButton {
+    color: #ffffff;
+    background: #ff9f22;
+    border: #ffffff;
+    border-radius: 15px;
+    border-style: outset;
+}
+
+QPushButton#markedButton:hover {
+    background: qlineargradient( x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #ff9f22, stop: 1 #ff7f40 );
+}
+
+QPushButton#markedButton:pressed {
+    border-style: inset;
+    background:qlineargradient( x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 1 #ff9f22, stop: 1 #ff7f40 );
+}
+
+QPushButton#operationButton {
+    color: #000000;
+    background: #dcdcde;
+    border: #ffffff;
+    border-radius: 15px;
+    border-style: outset;
+}
+
+QPushButton#operationButton:hover {
+    background: qlineargradient( x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #dcdcde, stop: 1 #c3c4c7 );
+}
+
+QPushButton#operationButton:pressed {
+    border-style: inset;
+    background:qlineargradient( x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 1 #dcdcde, stop: 1 #cccccc );
+}
