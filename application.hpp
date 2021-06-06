@@ -15,7 +15,7 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <QAction>
-#include "QLabel"
+#include <QLabel>
 #include <QVBoxLayout>
 #include <QPushButton>
 

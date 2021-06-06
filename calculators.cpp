@@ -9,7 +9,6 @@
 using namespace model;
 using namespace calc_implementation;
 
-
 Basic_calculator::Basic_calculator()
 : m_get_result_is_pressed(false)
 {
@@ -194,7 +193,7 @@ void Basic_calculator::remove_extra_symbols() noexcept
     }
     auto dot = std::find(m_first_operand.begin(), m_first_operand.end(), '.');
     
-    // If the result is an integer, remove all symbols after the dot
+    // If the result is an integer, removes all symbols after the dot
     bool is_int = true;
     for (auto symbol = dot + 1; symbol != m_first_operand.end(); ++symbol) {
         if (*symbol != L'0') {
@@ -205,7 +204,7 @@ void Basic_calculator::remove_extra_symbols() noexcept
         m_first_operand.erase(dot, m_first_operand.end());
         return;
     }
-    // If the result is not an integer, remove zero-substring at the end of it
+    // If the result is not an integer, removes zero-substring at the end of it
     for (auto last = dot + 1; last != m_first_operand.end(); ++last) {
         if (*last > L'0') {
             if (*(last + 1) == L'0') {
@@ -244,7 +243,7 @@ Engineering_calculator::Engineering_calculator()
 
 void Engineering_calculator::put_data(const std::wstring &data)
 {
-    auto put_constant = [this](std::wstring constant) mutable {
+    auto put_constant = [this](std::wstring constant) {
         if (m_operation.empty()) {
             m_first_operand = constant;
         } else {

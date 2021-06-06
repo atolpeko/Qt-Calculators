@@ -3,7 +3,7 @@
 //  Qt-Calculators
 //
 
-#ifdef WIN2
+#ifdef WIN32
  #define PATH_SEPARATOR "\"
 #else
  #define PATH_SEPARATOR "/"
@@ -32,10 +32,8 @@ GUI_app::GUI_app(int &argc, char **argv,
 
 void GUI_app::set_global_style()
 {
-    //QFile styles(QString(PATH_SEPARATOR) + "resources" +
-      //           QString(PATH_SEPARATOR) + "styles.qss");
-    
-    QFile styles("/Users/atolpeko/code/projects/calculator/Qt-Calculators/resources/styles.qss");
+    QFile styles(QString(PATH_SEPARATOR) + "resources" +
+                 QString(PATH_SEPARATOR) + "styles.qss");
     styles.open(QFile::ReadOnly);
     setStyleSheet(QString::fromLatin1(styles.readAll()));
     styles.close();

@@ -7,11 +7,10 @@
 #define CALCULATORS_HPP
 
 
-#include <cmath>
-
 #include <string>
 #include <map>
 #include <exception>
+#include <cmath>
 
 
 namespace model {
