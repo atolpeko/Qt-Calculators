@@ -40,7 +40,7 @@ std::wstring& Basic_calculator::calculate()
     }
 }
 
-std::wstring& Basic_calculator::do_binary(p_binary_oper &operation)
+std::wstring& Basic_calculator::do_binary(p_binary_oper& operation)
 {
     if (m_first_operand.empty() || m_second_operand.empty()) {
         throw insufficient_data();
@@ -57,7 +57,7 @@ std::wstring& Basic_calculator::do_binary(p_binary_oper &operation)
     return m_first_operand;
 }
 
-std::wstring& Basic_calculator::do_unary(p_unary_oper &operation)
+std::wstring& Basic_calculator::do_unary(p_unary_oper& operation)
 {
     if (m_first_operand.empty()) {
         throw insufficient_data();
@@ -75,9 +75,9 @@ std::wstring& Basic_calculator::do_unary(p_unary_oper &operation)
     return m_first_operand;
 }
 
-void Basic_calculator::put_data(const std::wstring &data)
+void Basic_calculator::put_data(const std::wstring& data)
 {
-    auto data_is_number = [this, data]()->bool  {
+    auto data_is_number = [this, data]()->bool {
         for (auto &symbol : data) {
             if ((symbol < '0' || symbol > '9') && symbol != '.') {
                 return false;
@@ -99,9 +99,9 @@ void Basic_calculator::put_data(const std::wstring &data)
     }
 }
 
-void Basic_calculator::put_operand(const std::wstring &data) noexcept
+void Basic_calculator::put_operand(const std::wstring& data) noexcept
 {
-    auto dot_is_valid = [data](std::wstring &operand)->bool {
+    auto dot_is_valid = [data](std::wstring &operand) {
         return !operand.empty() &&
         (std::find(operand.begin(), operand.end(), L'.') == operand.end());
     };
@@ -119,7 +119,7 @@ void Basic_calculator::put_operand(const std::wstring &data) noexcept
     }
 }
 
-void Basic_calculator::put_operation(const std::wstring &operation)
+void Basic_calculator::put_operation(const std::wstring& operation)
 {
     if (m_unary_operations.find(operation) == m_unary_operations.end() &&
         m_binary_operations.find(operation) == m_binary_operations.end()) {
@@ -141,7 +141,7 @@ void Basic_calculator::reset() noexcept
 
 void Basic_calculator::change_sign()
 {
-    std::wstring *required_operand = nullptr;
+    std::wstring* required_operand = nullptr;
     if (!m_first_operand.empty() && !m_second_operand.empty()) {
         required_operand = &m_second_operand;
     } else if (!m_first_operand.empty()) {
@@ -241,7 +241,7 @@ Engineering_calculator::Engineering_calculator()
     m_unary_operations[L"eᵡ-1"] = [](double x) { return std::exp(x) - 1.0; };
 }
 
-void Engineering_calculator::put_data(const std::wstring &data)
+void Engineering_calculator::put_data(const std::wstring& data)
 {
     auto put_constant = [this](std::wstring constant) {
         if (m_operation.empty()) {

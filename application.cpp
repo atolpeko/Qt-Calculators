@@ -50,15 +50,15 @@ void GUI_app::make_main_window()
 
 void GUI_app::make_menu_bar()
 {
-    auto *menu_bar = new QMenuBar(&m_main_window);
-    auto *view_menu = new QMenu("View", menu_bar);
+    auto menu_bar = new QMenuBar(&m_main_window);
+    auto view_menu = new QMenu("View", menu_bar);
     
-    auto *to_basic = new QAction("Basic calculator", view_menu);
+    auto to_basic = new QAction("Basic calculator", view_menu);
     to_basic->setShortcut(QKeySequence::Bold);
     connect(to_basic, &QAction::triggered,
             this, &GUI_app::slot_switch_to_basic_calc);
     
-    auto *to_engin = new QAction("Engineering calculator", view_menu);
+    auto to_engin = new QAction("Engineering calculator", view_menu);
     to_engin->setShortcut(QKeySequence::New);
     connect(to_engin, &QAction::triggered,
             this, &GUI_app::slot_switch_to_engin_calc);
@@ -87,7 +87,7 @@ void GUI_app::make_basic_calculator()
     m_basic_calc_wgt = new QWidget(&m_main_window);
     
     // Result output field
-    auto *result_label = new QLabel(m_basic_calc_wgt);
+    auto result_label = new QLabel(m_basic_calc_wgt);
     result_label->setAlignment(Qt::AlignRight);
     QFont result_label_font;
     result_label_font.setBold(true);
@@ -96,7 +96,7 @@ void GUI_app::make_basic_calculator()
     result_label->setText("0");
 
     // Buttons and Layout setup
-    auto *wl = new QGridLayout;
+    auto wl = new QGridLayout;
     wl->setSpacing(7);
     
     wl->addWidget(result_label, 0, 0, 1, 4);
@@ -126,16 +126,15 @@ void GUI_app::make_basic_calculator()
     wl->addWidget(make_button(&GUI_app::slot_basic_calc, "=", false, true));
 
     m_basic_calc_wgt->setLayout(wl);
-    
     m_calc_widgets->addWidget(m_basic_calc_wgt);
 }
 
 void GUI_app::slot_basic_calc()
 {
-    QString condition = qobject_cast<QPushButton*>(sender())->text();
-    QString result = m_basic_calc.calculate(condition);
+    auto condition = qobject_cast<QPushButton*>(sender())->text();
+    auto result = m_basic_calc.calculate(condition);
  
-    QLabel *result_label = m_basic_calc_wgt->findChild<QLabel*>();
+    auto result_label = m_basic_calc_wgt->findChild<QLabel*>();
     result_label->setText(result);
 }
 
@@ -144,7 +143,7 @@ void GUI_app::make_engineering_calculator()
     m_engineering_calc_wgt = new QWidget(&m_main_window);
 
     // Result output field
-    auto *result_label = new QLabel(m_engineering_calc_wgt);
+    auto result_label = new QLabel(m_engineering_calc_wgt);
     result_label->setAlignment(Qt::AlignRight);
     QFont result_label_font;
     result_label_font.setBold(true);
@@ -153,7 +152,7 @@ void GUI_app::make_engineering_calculator()
     result_label->setText("0");
 
     // Buttons and Layout setup
-    auto *wl = new QGridLayout;
+    auto wl = new QGridLayout;
     wl->setSpacing(5);
     
     wl->addWidget(result_label, 0, 0, 1, 9);
@@ -206,25 +205,24 @@ void GUI_app::make_engineering_calculator()
     wl->addWidget(make_button(&GUI_app::slot_engin_calc, "=", false, true));
 
     m_engineering_calc_wgt->setLayout(wl);
-
     m_calc_widgets->addWidget(m_engineering_calc_wgt);
 }
 
 void GUI_app::slot_engin_calc()
 {
-    QString condition = qobject_cast<QPushButton*>(sender())->text();
-    QString result = m_engineering_calc.calculate(condition);
+    auto condition = qobject_cast<QPushButton*>(sender())->text();
+    auto result = m_engineering_calc.calculate(condition);
  
-    QLabel *result_label = m_engineering_calc_wgt->findChild<QLabel*>();
+    auto result_label = m_engineering_calc_wgt->findChild<QLabel*>();
     result_label->setText(result);
 }
 
-QPushButton* GUI_app::make_button(void (GUI_app:: *slot)(),
-                                  const QString &text,
+QPushButton* GUI_app::make_button(void (GUI_app::* slot)(),
+                                  const QString& text,
                                   bool is_operation,
                                   bool is_marked)
 {
-    auto *button = new QPushButton(text);
+    auto button = new QPushButton(text);
     button->setMinimumSize(20, 40);
     
     if (is_operation) {

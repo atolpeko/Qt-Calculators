@@ -9,7 +9,7 @@
 Presenter::Presenter(model::Calculator_interface &calculator)
 : m_calculator(calculator) {}
 
-QString& Presenter::calculate(const QString &condition) noexcept
+QString& Presenter::calculate(const QString& condition) noexcept
 {
     auto do_calculate = [this]()->QString& {
         if (m_calculator.ready_to_calculate()) {

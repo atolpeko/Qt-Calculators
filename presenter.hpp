@@ -14,10 +14,10 @@
 class Presenter {
 public:
     Presenter(model::Calculator_interface& calculator);
-    QString& calculate(const QString &condition) noexcept;
+    QString& calculate(const QString& condition) noexcept;
     
 private:
-    model::Calculator_interface &m_calculator;
+    model::Calculator_interface& m_calculator;
     QString m_history;
 };
 

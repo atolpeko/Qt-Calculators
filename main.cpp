@@ -8,7 +8,7 @@
 #include "presenter.hpp"
 
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     model::Basic_calculator calculator;
     model::Engineering_calculator engineering_calculator;

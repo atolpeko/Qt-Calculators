@@ -33,7 +33,7 @@ public:
     virtual ~Calculator_interface() = default;
 
     virtual std::wstring& calculate() = 0;
-    virtual void put_data(const std::wstring &data) = 0;
+    virtual void put_data(const std::wstring& data) = 0;
     virtual void reset() noexcept = 0;
     virtual void change_sign() = 0;
     virtual std::wstring get_state() const noexcept = 0;
@@ -44,24 +44,24 @@ public:
 class model::Basic_calculator : public Calculator_interface {
 protected:
     using p_binary_oper = double(*)(double, double);
-    using p_unary_oper = double(*)( double);
+    using p_unary_oper = double(*)(double);
     
 public:
     Basic_calculator();
     virtual ~Basic_calculator() = default;
 
     std::wstring& calculate() override;
-    void put_data(const std::wstring &data) override;
+    void put_data(const std::wstring& data) override;
     void reset() noexcept override;
     void change_sign() override;
     std::wstring get_state() const noexcept override;
     bool ready_to_calculate() const noexcept override;
 
 private:
-    std::wstring& do_binary(p_binary_oper &operation);
-    std::wstring& do_unary(p_unary_oper &operation);
-    void put_operand(const std::wstring &data) noexcept;
-    void put_operation(const std::wstring &data);
+    std::wstring& do_binary(p_binary_oper& operation);
+    std::wstring& do_unary(p_unary_oper& operation);
+    void put_operand(const std::wstring& data) noexcept;
+    void put_operation(const std::wstring& data);
     void remove_extra_symbols() noexcept;
 
 protected:
@@ -81,7 +81,7 @@ public:
     Engineering_calculator();
     virtual ~Engineering_calculator() = default;
     
-    void put_data(const std::wstring &data) override;
+    void put_data(const std::wstring& data) override;
 };
 
 

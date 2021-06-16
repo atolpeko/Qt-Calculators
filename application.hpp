@@ -24,7 +24,7 @@
 
 class GUI_app : public QApplication {
 public:
-    GUI_app(int &argc, char **argv,
+    GUI_app(int& argc, char** argv,
             Presenter& basic_calculator,
             Presenter& engineering_calculator);
 
@@ -40,18 +40,18 @@ private:
     void make_menu_bar();
     void make_basic_calculator();
     void make_engineering_calculator();
-    QPushButton* make_button(void (GUI_app:: *slot)(),
-                             const QString &text,
+    QPushButton* make_button(void (GUI_app::* slot)(),
+                             const QString& text,
                              bool is_operation = false,
                              bool is_marked = false);
 private:
-    Presenter &m_basic_calc;
-    Presenter &m_engineering_calc;
+    Presenter& m_basic_calc;
+    Presenter& m_engineering_calc;
     
     QMainWindow m_main_window;
-    QStackedWidget *m_calc_widgets;
-    QWidget *m_basic_calc_wgt;
-    QWidget *m_engineering_calc_wgt;
+    QStackedWidget* m_calc_widgets;
+    QWidget* m_basic_calc_wgt;
+    QWidget* m_engineering_calc_wgt;
 };
 
 
